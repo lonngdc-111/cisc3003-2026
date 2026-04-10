@@ -7,10 +7,10 @@
                      mdl-textfield--floating-label mdl-textfield--align-right">
 
             <label id="tt2" class="material-icons mdl-badge mdl-badge--overlap" data-badge="5">account_box</label>  
-            <div class="mdl-tooltip" for="tt2">Messages</div>                     
+            <div class="mdl-tooltip" data-mdl-for="tt2">Messages</div>                     
 
             <label id="tt3" class="material-icons mdl-badge mdl-badge--overlap" data-badge="4">notifications</label> 
-             <div class="mdl-tooltip" for="tt3">Notifications</div>           
+             <div class="mdl-tooltip" data-mdl-for="tt3">Notifications</div>           
 
             <label class="mdl-button mdl-js-button mdl-button--icon"
                   for="fixed-header-drawer-exp">
