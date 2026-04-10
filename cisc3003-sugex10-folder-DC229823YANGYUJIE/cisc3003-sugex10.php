@@ -13,16 +13,13 @@ $orders = $selectedCustomer ? readOrders($selectedCustomer, 'data/orders.txt') :
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DC229823 YANGYUJIE</title>
 
-    <!-- 字体和图标 -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!-- 本地 CSS 文件 -->
     <link rel="stylesheet" href="css/material.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/demo-styles.css">
 
-    <!-- 本地 JS 文件 -->
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="js/material.min.js"></script>
     <script src="js/jquery.sparkline.2.1.2.js"></script>
@@ -80,11 +77,11 @@ $orders = $selectedCustomer ? readOrders($selectedCustomer, 'data/orders.txt') :
         <section class="page-content">
             <div class="mdl-grid">
 
-                <!-- Customers Table -->
                 <div class="mdl-cell mdl-cell--7-col card-lesson mdl-card mdl-shadow--2dp">
                     <div class="mdl-card__title mdl-color--orange">
                         <h2 class="mdl-card__title-text">Customers</h2>
                     </div>
+
                     <div class="mdl-card__supporting-text">
                         <table class="mdl-data-table mdl-shadow--2dp">
                             <thead>
@@ -103,8 +100,12 @@ $orders = $selectedCustomer ? readOrders($selectedCustomer, 'data/orders.txt') :
                                                 <?php echo h($customer['first_name'] . ' ' . $customer['last_name']); ?>
                                             </a>
                                         </td>
-                                        <td class="mdl-data-table__cell--non-numeric"><?php echo h($customer['university']); ?></td>
-                                        <td class="mdl-data-table__cell--non-numeric"><?php echo h($customer['city']); ?></td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <?php echo h($customer['university']); ?>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <?php echo h($customer['city']); ?>
+                                        </td>
                                         <td>
                                             <span class="sparkline-bar"><?php echo h($customer['sales']); ?></span>
                                         </td>
@@ -115,34 +116,55 @@ $orders = $selectedCustomer ? readOrders($selectedCustomer, 'data/orders.txt') :
                     </div>
                 </div>
 
-                <!-- Customer Details & Orders -->
                 <div class="mdl-grid mdl-cell--5-col">
 
-                    <!-- Customer Details -->
                     <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card mdl-shadow--2dp">
                         <div class="mdl-card__title mdl-color--deep-purple mdl-color-text--white">
                             <h2 class="mdl-card__title-text">Customer Details</h2>
                         </div>
+
                         <div class="mdl-card__supporting-text">
                             <?php if ($selectedCustomer): ?>
-                                <h4><?php echo h($selectedCustomer['first_name'] . ' ' . $selectedCustomer['last_name']); ?></h4>
-                                <p class="detail-line"><strong>Email:</strong> <?php echo h($selectedCustomer['email']); ?></p>
-                                <p class="detail-line"><strong>University:</strong> <?php echo h($selectedCustomer['university']); ?></p>
-                                <p class="detail-line"><strong>Address:</strong>
-                                    <?php echo h($selectedCustomer['address'] . ', ' . $selectedCustomer['city'] . ', ' . $selectedCustomer['state'] . ', ' . $selectedCustomer['country'] . ', ' . $selectedCustomer['zip']); ?>
+                                <h2><?php echo h($selectedCustomer['first_name'] . ' ' . $selectedCustomer['last_name']); ?></h2>
+
+                                <p class="detail-line">
+                                    <strong>Email:</strong>
+                                    <?php echo h($selectedCustomer['email']); ?>
                                 </p>
-                                <p class="detail-line"><strong>Phone:</strong> <?php echo h($selectedCustomer['phone']); ?></p>
+
+                                <p class="detail-line">
+                                    <strong>University:</strong>
+                                    <?php echo h($selectedCustomer['university']); ?>
+                                </p>
+
+                                <p class="detail-line">
+                                    <strong>Address:</strong>
+                                    <?php
+                                    echo h(
+                                        $selectedCustomer['address'] . ', ' .
+                                        $selectedCustomer['city'] . ', ' .
+                                        $selectedCustomer['state'] . ', ' .
+                                        $selectedCustomer['country'] . ', ' .
+                                        $selectedCustomer['zip']
+                                    );
+                                    ?>
+                                </p>
+
+                                <p class="detail-line">
+                                    <strong>Phone:</strong>
+                                    <?php echo h($selectedCustomer['phone']); ?>
+                                </p>
                             <?php else: ?>
                                 <p>Select a customer to view details.</p>
                             <?php endif; ?>
                         </div>
                     </div>
 
-                    <!-- Order Details -->
                     <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card mdl-shadow--2dp">
                         <div class="mdl-card__title mdl-color--deep-purple mdl-color-text--white">
                             <h2 class="mdl-card__title-text">Order Details</h2>
                         </div>
+
                         <div class="mdl-card__supporting-text">
                             <table class="mdl-data-table mdl-shadow--2dp order-table">
                                 <thead>
@@ -155,16 +177,26 @@ $orders = $selectedCustomer ? readOrders($selectedCustomer, 'data/orders.txt') :
                                 <tbody>
                                     <?php if (!$selectedCustomer): ?>
                                     <?php elseif (empty($orders)): ?>
-                                        <tr><td colspan="3">No orders for this customer.</td></tr>
+                                        <tr>
+                                            <td colspan="3">No orders for this customer.</td>
+                                        </tr>
                                     <?php else: ?>
                                         <?php foreach ($orders as $order): ?>
                                             <tr>
                                                 <td class="mdl-data-table__cell--non-numeric">
-                                                    <?php $cover = 'images/tinysquare/' . $order['isbn'] . '.jpg'; ?>
-                                                    <img class="cover-thumb" src="<?php echo h($cover); ?>" alt="<?php echo h($order['title']); ?>">
+                                                    <?php $cover = findBookCover($order['isbn']); ?>
+                                                    <?php if ($cover !== ''): ?>
+                                                        <img class="cover-thumb" src="<?php echo h($cover); ?>" alt="<?php echo h($order['title']); ?>">
+                                                    <?php else: ?>
+                                                        <span>-</span>
+                                                    <?php endif; ?>
                                                 </td>
-                                                <td class="mdl-data-table__cell--non-numeric"><?php echo h($order['isbn']); ?></td>
-                                                <td class="mdl-data-table__cell--non-numeric"><?php echo h($order['title']); ?></td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    <?php echo h($order['isbn']); ?>
+                                                </td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    <?php echo h($order['title']); ?>
+                                                </td>
                                             </tr>
                                         <?php endforeach; ?>
                                     <?php endif; ?>
