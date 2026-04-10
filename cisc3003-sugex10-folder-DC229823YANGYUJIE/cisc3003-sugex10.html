@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC229823 YANGYUJIE</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="css/material.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/demo-styles.css">
+
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="js/material.min.js"></script>
+    <script src="js/jquery.sparkline.2.1.2.js"></script>
+
+    <style>
+        .sparkline-bar {
+            display: inline-block;
+            min-width: 70px;
+        }
+
+        .cover-thumb {
+            width: 50px;
+            height: auto;
+            display: block;
+        }
+
+        .customer-link {
+            color: #ff9800;
+            text-decoration: underline;
+        }
+
+        .customer-link:hover {
+            color: #e68900;
+        }
+
+        .page-footer-custom {
+            width: 100%;
+            text-align: center;
+            padding: 14px 10px;
+            background: #eeeeee;
+            color: #333;
+            font-size: 14px;
+            border-top: 1px solid #d0d0d0;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        .detail-line {
+            margin: 0 0 12px 0;
+            line-height: 1.7;
+        }
+
+        .detail-line strong {
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+         <h1 class="mdl-layout-title"><span>CRM</span> Admin</h1>
+         <div class="mdl-layout-spacer"></div>
+
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                     mdl-textfield--floating-label mdl-textfield--align-right">
+
+            <label id="tt2" class="material-icons mdl-badge mdl-badge--overlap" data-badge="5">account_box</label>  
+            <div class="mdl-tooltip" data-mdl-for="tt2">Messages</div>                     
+
+            <label id="tt3" class="material-icons mdl-badge mdl-badge--overlap" data-badge="4">notifications</label> 
+             <div class="mdl-tooltip" data-mdl-for="tt3">Notifications</div>           
+
+            <label class="mdl-button mdl-js-button mdl-button--icon"
+                  for="fixed-header-drawer-exp">
+             <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+             <input class="mdl-textfield__input" type="text" name="sample"
+                    id="fixed-header-drawer-exp">
+            </div>
+
+         </div>
+    </div>
+  </header>      <div class="mdl-layout__drawer mdl-color--blue-grey-800 mdl-color-text--blue-grey-50">
+       <div class="profile">
+           <img src="images/profile.jpg" class="avatar">
+           <h2>John Locke</h2>           
+           <span>johnlocke@example.com</span>
+       </div>
+
+       <nav class="mdl-navigation mdl-color-text--blue-grey-300">
+           <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">dashboard</i> Dashboard</a>
+           <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">message</i> Messages</a>
+           <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">event</i> Tasks</a>
+           <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">call</i> Orders</a>
+           <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">settings</i> Configure</a>
+           <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">view_list</i> Catalog</a>
+           <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">contacts</i> Customers</a>
+           <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">insert_chart</i> Analytics</a>                              
+       </nav>
+  </div>
+    <main class="mdl-layout__content mdl-color--grey-50">
+        <section class="page-content">
+            <div class="mdl-grid">
+
+                <div class="mdl-cell mdl-cell--7-col card-lesson mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-color--orange">
+                        <h2 class="mdl-card__title-text">Customers</h2>
+                    </div>
+
+                    <div class="mdl-card__supporting-text">
+                        <table class="mdl-data-table mdl-shadow--2dp">
+                            <thead>
+                                <tr>
+                                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+                                    <th class="mdl-data-table__cell--non-numeric">University</th>
+                                    <th class="mdl-data-table__cell--non-numeric">City</th>
+                                    <th>Sales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=2">
+                                                Leonie Kohler                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            University of Stuttgart                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Stuttgart                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">1,4,4,7,5,9,10,10,10,12,11,9</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=3">
+                                                Bjorn Hansen                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            University of Oslo                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Oslo                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">6,4,4,7,8,9,10,10,6,6,3,9</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=4">
+                                                Francois Tremblay                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            McGill University                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Montreal                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">9,12,14,17,15,12,10,10,10,16,11,9</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=5">
+                                                                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Charles University                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Prague                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">1,2,4,3,5,1,1,1,1,2,1,5</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=6">
+                                                Astrid Gruber                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Vienna University                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Vienna                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">6,4,8,7,8,9,5,7,6,6,3,9</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=7">
+                                                Helena Holy                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Charles University                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Prague                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">3,3,4,7,2,3,2,10,6,6,3,9</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=16">
+                                                Aaron Mitchell                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            University of Manitoba                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Winnipeg                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">4,4,7,8,9,4,10,6,6,3,9,11</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=17">
+                                                Ellie Sullivan                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Aurora College                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Yellowknife                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">11,14,8,7,5,9,9,6, 10,6,11,9</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=18">
+                                                Joao Fernandes                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            University of Lisbon                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Lisbon                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">3,3,4,3,5,1,3,3,1,2,1,5</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=19">
+                                                Madalena Sampaio                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            University of Porto                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Porto                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">2,4,3,5,1,4,6,1,1,2,1,5</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=22">
+                                                Isabelle Mercier                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            University of Burgundy                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            Dijon                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">1,1,1,3,5,1,3,1,1,2,1,5</span>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            <a class="customer-link" href="?customer_id=23">
+                                                Emma Jones                                            </a>
+                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            King&#039;s College                                        </td>
+                                        <td class="mdl-data-table__cell--non-numeric">
+                                            London                                        </td>
+                                        <td>
+                                            <span class="sparkline-bar">1,2,4,3,5,1,8,8,4,2,1,5</span>
+                                        </td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mdl-grid mdl-cell--5-col">
+
+                    <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card mdl-shadow--2dp">
+                        <div class="mdl-card__title mdl-color--deep-purple mdl-color-text--white">
+                            <h2 class="mdl-card__title-text">Customer Details</h2>
+                        </div>
+
+                        <div class="mdl-card__supporting-text">
+                                                            <h2>Joao Fernandes</h2>
+
+                                <p class="detail-line">
+                                    <strong>Email:</strong>
+                                    jfernandes@yahoo.pt                                </p>
+
+                                <p class="detail-line">
+                                    <strong>University:</strong>
+                                    University of Lisbon                                </p>
+
+                                <p class="detail-line">
+                                    <strong>Address:</strong>
+                                    Rua da Assuncao 53, Lisbon, , Portugal,                                 </p>
+
+                                <p class="detail-line">
+                                    <strong>Phone:</strong>
+                                    +351 (213) 466-111                                </p>
+                                                    </div>
+                    </div>
+
+                    <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card mdl-shadow--2dp">
+                        <div class="mdl-card__title mdl-color--deep-purple mdl-color-text--white">
+                            <h2 class="mdl-card__title-text">Order Details</h2>
+                        </div>
+
+                        <div class="mdl-card__supporting-text">
+                            <table class="mdl-data-table mdl-shadow--2dp order-table">
+                                <thead>
+                                    <tr>
+                                        <th class="mdl-data-table__cell--non-numeric">Cover</th>
+                                        <th class="mdl-data-table__cell--non-numeric">ISBN</th>
+                                        <th class="mdl-data-table__cell--non-numeric">Title</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                                                                                                        <tr>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                                                                                                                                <img class="cover-thumb" src="images/tinysquare/0132948850.jpg" alt="Survey of Economics">
+                                                                                                    </td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    0132948850                                                </td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    Survey of Economics                                                </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                                                                                                                                <img class="cover-thumb" src="images/tinysquare/0132948869.jpg" alt="Microeconomics">
+                                                                                                    </td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    0132948869                                                </td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    Microeconomics                                                </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                                                                                                                                <img class="cover-thumb" src="images/tinysquare/0132991330.jpg" alt="Macroeconomics">
+                                                                                                    </td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    0132991330                                                </td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    Macroeconomics                                                </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                                                                                                                                <img class="cover-thumb" src="images/tinysquare/0132992795.jpg" alt="Macroeconomics">
+                                                                                                    </td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    0132992795                                                </td>
+                                                <td class="mdl-data-table__cell--non-numeric">
+                                                    Macroeconomics                                                </td>
+                                            </tr>
+                                                                                                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer class="page-footer-custom">
+            CISC3003 Web Programming: DC229823 YANGYUJIE 2026
+        </footer>
+    </main>
+</div>
+
+<script>
+$(function () {
+    $('.sparkline-bar').sparkline('html', {
+        type: 'bar',
+        barColor: '#3f51b5',
+        height: '22px',
+        barWidth: 4,
+        barSpacing: 1
+    });
+});
+</script>
+
+</body>
+</html>
